@@ -1,3 +1,9 @@
 *.exe
 *.code-workspace
 *.json
+*.dll
+*.dat
+*.bin
+ContactManagement/**
+MonteCarloSim/pokersim_old_edit.c
+MonteCarloSim/pokersim_old.c
