@@ -74,6 +74,7 @@ int main(){
     ll draws;
     printf("Enter number of draws : ");
     scanf("%lld",&draws);
+    fflush(stdin);
     srand(time(0)); //* SEEDING THE RANDOM NUMBER GENERATOR
     for (ll i = 0; i < draws; i++)
     {
@@ -95,6 +96,7 @@ int main(){
     printf("Probability of double pairs:%llf%\n", (total_odds->n_all[7] / (draws / 100.0)));
     printf("Probability of single pairs:%llf%\n", (total_odds->n_all[8] / (draws / 100.0)));
     printf("Probability of high cards:%llf%\n", (total_odds->n_all[9] / (draws / 100.0)));
+    getchar();
     return 0;
 }
 void deck_init(card *deck){
