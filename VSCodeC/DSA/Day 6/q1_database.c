@@ -2,11 +2,11 @@
 #include <stdlib.h>
 typedef struct Node node;
 struct Node{
-    char name[20];
-    char dept;
-    char father_name[20];
-    int ph_number;
-    char location[20];
+    char name_1482[20];
+    char dept_1482;
+    char father_name_1482[20];
+    long ph_number_1482;
+    char location_1482[20];
     node *next;
 };
 void insert_at_beg(node **,node *);
@@ -20,9 +20,9 @@ int main(){
     do{
         printf("Enter Info : \n");
         node *info = make_node();
-        if(info->dept == 'C')
+        if(info->dept_1482 == 'C')
             insert_at_beg(master_ref,info);
-        else if(info->dept == 'I')
+        else if(info->dept_1482 == 'I')
             insert_at_end(master_ref,info);
         else{
             printf("Department not in correct format.Try again!!\n");
@@ -37,7 +37,7 @@ int main(){
     node *it = NULL;
     cse = master;
     node *traverse = master;
-    while(traverse->next->dept != 'I')
+    while(traverse->next->dept_1482 != 'I')
         traverse = traverse->next;
     it = traverse->next;
     traverse->next = NULL;
@@ -62,15 +62,16 @@ node *make_node(){
     node *temp;
     temp = (node *)malloc(sizeof(node));
     printf("Enter name : ");
-    scanf("%[^\n]%*c",temp->name);
+    scanf("%[^\n]%*c",temp->name_1482);
     printf("Enter father's name : ");
-    scanf("%[^\n]%*c",temp->father_name);
+    scanf("%[^\n]%*c",temp->father_name_1482);
     printf("Enter location : ");
-    scanf("%[^\n]%*c",temp->location);
+    scanf("%[^\n]%*c",temp->location_1482);
     printf("Enter department : ");
-    scanf("%c",&temp->dept);
+    scanf("%c",&temp->dept_1482);
     printf("Enter phone number : ");
-    scanf("%d",&temp->ph_number);
+    scanf("%l",&temp->ph_number_1482);
+    fflush(stdin);
     return temp;
 }
 void display(node *curr){
@@ -81,11 +82,11 @@ void display(node *curr){
     while (curr != NULL)
     {
         printf("<----------------------------------->\n");
-        printf("Student Name : %s\n", curr->name);
-        printf("Student Department : %c\n", curr->dept);
-        printf("Student Father's Name : %s\n", curr->father_name);
-        printf("Student Phone No. : %d\n", curr->ph_number);
-        printf("Student Location : %s\n", curr->location);
+        printf("Student Name : %s\n", curr->name_1482);
+        printf("Student Department : %c\n", curr->dept_1482);
+        printf("Student Father's Name : %s\n", curr->father_name_1482);
+        printf("Student Phone No. : %l\n", curr->ph_number_1482);
+        printf("Student Location : %s\n", curr->location_1482);
         printf("<----------------------------------->\n");
         curr = curr->next;
         i++;

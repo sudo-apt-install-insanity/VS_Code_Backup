@@ -2,9 +2,9 @@
 #include <stdlib.h>
 typedef struct Node node;
 struct Node{
-    char name[20];
-    char type;
-    int ph_number;
+    char name_1482[20];
+    char type_1482;
+    int ph_number_1482;
     node *next;
 };
 void insert_at_beg(node **,node *);
@@ -18,7 +18,7 @@ int main(){
     do{
         printf("Enter Info : \n");
         node *info = make_node();
-        if(info->type == 'S' || info->type == 'G' || info->type == 'O' || info->type == 'D' )
+        if(info->type_1482 == 'S' || info->type_1482 == 'G' || info->type_1482 == 'O' || info->type_1482 == 'D' )
             insert_at_beg(master_ref,info);
         else{
             printf("Department not in correct format.Try again!!\n");
@@ -33,7 +33,7 @@ int main(){
     node *s,*g,*o,*d;
     s = g = o = d = NULL;
     while(master){
-        switch (master->type)
+        switch (master->type_1482)
         {
         case 'S':
             insert_at_beg(&s,delete_from_beg(master_ref));
@@ -78,11 +78,11 @@ node *make_node(){
     node *temp;
     temp = (node *)malloc(sizeof(node));
     printf("Enter name : ");
-    scanf("%[^\n]%*c",temp->name);
+    scanf("%[^\n]%*c",temp->name_1482);
     printf("Enter type : ");
-    scanf("%c",&temp->type);
+    scanf("%c",&temp->type_1482);
     printf("Enter phone number : ");
-    scanf("%d",&temp->ph_number);
+    scanf("%d",&temp->ph_number_1482);
     return temp;
 }
 void display(node *curr){
@@ -92,8 +92,8 @@ void display(node *curr){
     while (curr != NULL)
     {
         
-        printf("Name : %s\n",curr->name);
-        printf("Phone No. : %d\n",curr->ph_number);
+        printf("Name : %s\n",curr->name_1482);
+        printf("Phone No. : %d\n",curr->ph_number_1482);
         curr = curr->next;
         i++;
         printf("\n");
