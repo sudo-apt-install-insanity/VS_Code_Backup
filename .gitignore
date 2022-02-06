@@ -4,6 +4,8 @@
 *.dll
 *.dat
 *.bin
+*.class
+*.
 ContactManagement/**
 MonteCarloSim/pokersim_old_edit.c
 MonteCarloSim/pokersim_old.c

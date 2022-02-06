@@ -1,20 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
 
-int chk(int j){
-    static int sum = 0;
-    sum += j;
-    return sum;
-}
-void chkB(int n){
-    int i,total;
-    for (i = 1; i <= n; ++i)
-    {
-        total = chk(i);
-    }
-    printf("%d",total);
-    
+int fun(int n){
+    if(n <= 1)
+        return 1;
+    return n * fun(n-1);
+        
 }
 int main(){
-    chkB(4);
+    printf("%d",fun(20));
 }

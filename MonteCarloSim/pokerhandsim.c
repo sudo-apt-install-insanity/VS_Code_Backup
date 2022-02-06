@@ -86,16 +86,16 @@ int main(){
         draw5(hand_7,draw_5,total_odds);//* ALL 5 CARD COMBOS ARE CHECKED AGAINST DIFFERENT HANDS.
     }
 
-    printf("Probability of royal flushes:%llf%\n", (total_odds->n_all[0] / (draws / 100.0)));
-    printf("Probability of straight flushes:%llf%\n", (total_odds->n_all[1] / (draws / 100.0)));
-    printf("Probability of four of a kind:%llf%\n", (total_odds->n_all[2] / (draws / 100.0)));
-    printf("Probability of full houses:%llf%\n", (total_odds->n_all[3] / (draws / 100.0)));
-    printf("Probability of flushes:%llf%\n", (total_odds->n_all[4] / (draws / 100.0)));
-    printf("Probability of straights:%llf%\n", (total_odds->n_all[5] / (draws / 100.0)));
-    printf("Probability of three of a kind:%llf%\n", (total_odds->n_all[6] / (draws / 100.0)));
-    printf("Probability of double pairs:%llf%\n", (total_odds->n_all[7] / (draws / 100.0)));
-    printf("Probability of single pairs:%llf%\n", (total_odds->n_all[8] / (draws / 100.0)));
-    printf("Probability of high cards:%llf%\n", (total_odds->n_all[9] / (draws / 100.0)));
+    printf("Probability of royal flushes:%ll\n", (total_odds->n_all[0] / (draws / 100.0)));
+    printf("Probability of straight flushes:%llf\n", (total_odds->n_all[1] / (draws / 100.0)));
+    printf("Probability of four of a kind:%llf\n", (total_odds->n_all[2] / (draws / 100.0)));
+    printf("Probability of full houses:%llf\n", (total_odds->n_all[3] / (draws / 100.0)));
+    printf("Probability of flushes:%llf\n", (total_odds->n_all[4] / (draws / 100.0)));
+    printf("Probability of straights:%llf\n", (total_odds->n_all[5] / (draws / 100.0)));
+    printf("Probability of three of a kind:%llf\n", (total_odds->n_all[6] / (draws / 100.0)));
+    printf("Probability of double pairs:%llf\n", (total_odds->n_all[7] / (draws / 100.0)));
+    printf("Probability of single pairs:%llf\n", (total_odds->n_all[8] / (draws / 100.0)));
+    printf("Probability of high cards:%llf\n", (total_odds->n_all[9] / (draws / 100.0)));
     getchar();
     return 0;
 }

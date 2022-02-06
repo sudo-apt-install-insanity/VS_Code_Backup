@@ -67,7 +67,7 @@ int main()
     }
     else
     {
-        printf("Array Is Present At : %d", ans);
+        printf("Array Is Present At : %d\n", ans);
     }
     return 0;
 }
