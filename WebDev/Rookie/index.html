@@ -12,7 +12,27 @@
 </head>
 
 <body>
-    <button>Hover Me!</button>
+    <button onclick="vibrate1()">Hover Me!</button>
 </body>
+
+<script>
+    function vibrate1() {
+
+        if (!window) {
+            return;
+        }
+
+        if (!window.navigator) {
+            return;
+        }
+
+        if (!window.navigator.vibrate) {
+            return;
+        }
+
+
+        navigator.vibrate(500);
+    }
+</script>
 
 </html>
