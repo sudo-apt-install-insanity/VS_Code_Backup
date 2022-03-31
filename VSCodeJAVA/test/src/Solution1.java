@@ -1,141 +1,115 @@
 import java.util.Scanner;
 
-class Sapling {
+class PhotoFrame {
     private int id;
-    private String name;
-    private int count;
-    private int price;
+    private int length;
+    private int breadth;
+    private String material;
 
-    int getId() {
+
+    PhotoFrame(){
+        id = 0;
+        length = 0;
+        breadth = 0;
+        material = ""; 
+    }
+    PhotoFrame(int id,int length,int breadth,String material){
+        this.id = id;
+        this.length = length;
+        this.breadth = breadth;
+        this.material = material; 
+    }
+
+    int getId(){
         return id;
     }
-
-    String getName() {
-        return name;
+    int getLength(){
+        return length;
+    }
+    int getBreadth(){
+        return breadth;
+    }
+    String getMaterial(){
+        return material;
     }
 
-    int getCount() {
-        return count;
-    }
-
-    int getPrice() {
-        return price;
-    }
-
-    void setId(int id) {
-        this.id = id;
-    }
-
-    void setName(String name) {
-        this.name = name;
-    }
-
-    void setCount(int count) {
-        this.count = count;
-    }
-
-    void setPrice(int price) {
-        this.price = price;
-    }
-
-    Sapling() {
-        id = 0;
-        name = "";
-        count = 0;
-        price = 0;
-    }
-
-    Sapling(int id, String name, int count, int price) {
-        this.name = name;
-        this.id = id;
-        this.count = count;
-        this.price = price;
-    }
-
-    Sapling(Sapling obj) {
-        this.id = obj.id;
-        this.name = obj.name;
-        this.count = obj.count;
-        this.price = obj.price;
+    void printPhotoFrame(){
+        System.out.println("id-"+id);
+        System.out.println("Length-"+length);
+        System.out.println("Breadth-"+breadth);
+        System.out.println("Material-"+material);
     }
 
 };
 
 public class Solution1 {
     public static void main(String[] args) {
-        Sapling[] list = new Sapling[4];
-        Sapling[] ans = new Sapling[4];
-        for (int i = 0; i < ans.length; i++) {
-            ans[i] = new Sapling();
-        }
-        int count;
-        int price;
-        int avg;
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < 4; i++) {
-            list[i] = new Sapling();
-            list[i].setId(sc.nextInt());
+        if(!sc.hasNext())
+        return;
+
+        int size = sc.nextInt();
+
+        PhotoFrame[] list = new PhotoFrame[size];
+        for(int i = 0;i < size ; i++){
+            int id = sc.nextInt();
+            int l = sc.nextInt();
+            int b = sc.nextInt();
             sc.nextLine();
-            list[i].setName(sc.nextLine());
-            list[i].setCount(sc.nextInt());
-            list[i].setPrice(sc.nextInt());
+            String mat = sc.nextLine();
+            list[i] = new PhotoFrame(id,l,b,mat);
         }
-        count = sc.nextInt();
-        price = sc.nextInt();
-        // System.out.println(findAvgOfCount(list,count));
-        avg = findAvgOfCount(list, count);
-        if (avg == 0)
-            System.out.println("No record found.");
+        String material = sc.nextLine();
+
+        
+
+        double average = getAverageAreaOfPhotoFramesByMaterial(list, material);
+        if(average > 0 )
+            System.out.println(average);
         else
-            System.out.println(avg);
+            System.out.println("No such Photo Frame available.");
 
-        list = sortNameByPrice(list, price);
-        for (int i = 0; i < list.length - 1; i++) {
-            if (list[0].getId() != 0) {
-                System.out.println(list[i].getName());
-            }
+        PhotoFrame answer = findPhotoFrameWithSecondLargestBreadth(list);
+        if(answer != null && answer.getMaterial().equalsIgnoreCase(material)){
+            answer.printPhotoFrame();
         }
-        if (list[0].getId() == 0) {
-            System.out.println("No record found with mentioned attribute.");
+        else{
+            System.out.println("No such Photo Frame available.");
         }
-
+            
         sc.close();
     }
 
-    static int findAvgOfCount(Sapling[] list, int count) {
-        int avg = 0, c = 0;
-        for (int i = 0; i < list.length; i++) {
-            if (list[i].getCount() < count) {
-                avg += list[i].getCount();
-                c++;
+
+    static double getAverageAreaOfPhotoFramesByMaterial(PhotoFrame[] list,String material){
+        double totalArea = 0;
+        int count = 0;
+        for(PhotoFrame i : list){
+            String currentMaterial = i.getMaterial();
+            if(currentMaterial.equalsIgnoreCase(material)){
+                totalArea += (i.getLength() * i.getBreadth());
+                count++;
             }
         }
-        if (c == 0)
+        if(count == 0)
             return 0;
-        return avg / c;
+        if(totalArea/count < 25)
+            return 0;
+        return totalArea/count;
     }
 
-    static Sapling[] sortNameByPrice(Sapling[] list, int price) {
-        for (int i = 0; i < list.length - 1; i++) {
-            for (int j = i + 1; j < list.length; j++) {
-                if (list[i].getPrice() > list[j].getPrice()) {
-                    Sapling temp = list[i];
+    static PhotoFrame findPhotoFrameWithSecondLargestBreadth(PhotoFrame[] list){
+        PhotoFrame ans = new PhotoFrame();
+        for (int i = 0; i < list.length; i++) {
+            for (int j = 1; j < list.length; j++) {
+                if (list[i].getBreadth() > list[j].getBreadth()) {
+                    PhotoFrame temp = list[i];
                     list[i] = list[j];
                     list[j] = temp;
                 }
             }
         }
-        int x = 0;
-        Sapling[] ans = new Sapling[4];
-        for (int i = 0; i < list.length; i++) {
-            if (list[i].getPrice() < price) {
-                ans[x] = new Sapling(list[i]);
-
-            } else {
-                ans[x] = new Sapling();
-            }
-            x++;
-        }
+        ans = list[list.length - 1 - 1];
         return ans;
     }
 }

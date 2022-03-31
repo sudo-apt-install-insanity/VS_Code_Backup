@@ -1,33 +1,21 @@
 #include <stdio.h>
-#include <stdlib.h>
-void f1(int (*b)[5]){
-    printf("%d",*(*b+1));
-    *(*b+1) = 99;
-}
-void f2(int b[5]){
-    printf("%d",*(b+1));
-    *(b+1) = 99;
-}
-int main(){
-    int a[5] = {5,9,7,8,2};
-    int *q = &a[0];
-    for (int i = 0; i < 5; i++)
+
+void main()
+{
+    int arr[] = {2, 5, 8, 10, 45, 23, 4, 10, 14, 17, 3, 9, 1};
+    int reqSum = 73;
+    int size = sizeof(arr) / sizeof(int);
+    int strIndex = 0;
+    int endIndex = 0;
+    int sum = 0;
+    for (int i = 0; i < size; i++)
     {
-        printf("%d ",*(&q[0]+i));
-        // q++;
+        sum+= arr[i];
+        endIndex++;
+        while(sum > reqSum){
+            sum -= arr[strIndex];
+            strIndex++; 
+        }
     }
-    printf("\n");
-    for (int i = 0; i < 5; i++)
-    {
-        printf("%d ",q[0]);
-        q++;
-    }
-    printf("\n");
-    f2(a);//9
-    printf("\n");
-    printf("%d",a[1]);//99
-    printf("\n");
-    f1(&a);//99
-    printf("\n");
-    printf("%d",a[1]);//99
+    
 }
