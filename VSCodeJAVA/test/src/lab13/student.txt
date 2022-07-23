@@ -1,0 +1,4 @@
+Roll : 482
+Name : Ainesh
+Subject Name : Physics
+Marks : 83
