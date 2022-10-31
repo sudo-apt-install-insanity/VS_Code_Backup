@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct Node node;
-struct Node
+typedef struct node node;
+struct node
 {
     int data;
     node *next;
@@ -146,7 +146,7 @@ void createLL(node **p)
     {
         scanf("%d", A + i);
     }
-    *p = (node *)malloc(sizeof(struct Node));
+    *p = (node *)malloc(sizeof(struct node));
     (*p)->data = A[0];
     (*p)->next = NULL;
     last = *p;

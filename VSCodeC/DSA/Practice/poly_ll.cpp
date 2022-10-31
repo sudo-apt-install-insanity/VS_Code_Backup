@@ -122,6 +122,8 @@ poly_node *create_polynomial(){
         insert_at_end(&head_ref,&last);
 
     }while (ch == 1);
+
+    return head_ref;
 }
 void print_polynomial(poly_node **head_ref){
     remove_duplicates(head_ref);

@@ -7,5 +7,5 @@ int fun(int n){
         
 }
 int main(){
-    printf("%d",fun(20));
+    printf("%d",fun(10));
 }

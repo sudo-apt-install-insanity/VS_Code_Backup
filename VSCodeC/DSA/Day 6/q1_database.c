@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct Node node;
-struct Node{
+typedef struct node node;
+struct node{
     char name_1482[20];
     char dept_1482;
     char father_name_1482[20];

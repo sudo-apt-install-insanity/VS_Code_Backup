@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-typedef struct Node node;
-struct Node{
+typedef struct node node;
+struct node{
     int cab_num;
     char status;
     char name[20];

@@ -85,7 +85,7 @@ void prod_diag(int **p,int order){
             
         }
     }
-    printf("Main prod : %d \n Minor prod : %d \n",main_prod,minor_prod);
+    printf("Main prod : %d \nMinor prod : %d \n",main_prod,minor_prod);
     
     
 }

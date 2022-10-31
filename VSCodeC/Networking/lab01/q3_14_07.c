@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(){
-    int a = 256;
+    int a = 1234566;
     int byte[4], ff = 255,k = 0;
     
     while(k < 4){

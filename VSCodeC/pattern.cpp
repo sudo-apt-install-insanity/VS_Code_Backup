@@ -1,38 +1,47 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int count1 = 0,count2 = 0;
-    for (int i = 5; i > 0; i--)
-    {
-        
-        if (i % 2 != 0)
-        {
-            for (int j = 1; j <= i; j++)
-            {
-                if(count1 == 0){
-                    cout << j << " ";
-                }else{
-                    cout << j + (count1*5)+4  << " ";
-                } 
-            }
-            count1++;
-        }else{
-            for (int j = i; j > 0; j--)
-            {
-                if(count2 == 0 ){
-                    cout << j + 5 << " "; 
-                }else{
-                    cout << j + 12 << " ";
-                }
-                
-            }
-            count2++;
-        }
+class student{
+    public:
+    string name,roll;
+    int mark[5];
 
-        cout << endl;
+    void getdata(){
+        cin>>name;
+        cin>>roll;
+        roll = roll.substr(0,2);
+        for(int i=0;i<5;i++){
+            cin>>mark[i];
+        }
     }
-    
-  
+};
+int main(){
+    int n;
+    cin >> n;
+    student list[n];
+    for(int i=0;i<n;i++){
+        list[i].getdata();
+    }
+    student passlist[n];
+    int k = 0;
+    for(int i=0;i<n;i++){
+        for(int j = 0;j < 5;j++){
+            if(list[i].mark[j] < 50 ) break;
+            passlist[k] = list[i];k++; break;
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j = 0;j < n;j++){
+            if(passlist[i].roll.compare(passlist[j].roll) <= 0){
+                student temp = passlist[i];
+                passlist[i] = passlist[j];
+                passlist[j] = temp;
+            }
+        }
+    }
+    for(int i = 0;i < k;i++){
+        cout<<passlist[i].name<<" "<<passlist[i].roll<<endl;
+    }
+
+    return 0;
 }

@@ -1,0 +1,7 @@
+number of elements from p to q : q-p+1
+number of elements form q+1 to r : r-q
+
+ x	x	x	x	x	x	x	x	x	x
+ p				q					r
+
+

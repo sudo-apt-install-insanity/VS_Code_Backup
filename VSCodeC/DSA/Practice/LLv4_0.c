@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct Node node;
+typedef struct node node;
 node* make_node(int);
 void display(node *);
 void insert(node **, int, int);
@@ -10,7 +10,7 @@ int nodeCount(node *);
 void reverse(node **);
 int valueAtIdx(node *,int );
 void sort(node **);
-struct Node
+struct node
 {
     int data;
     node *next;
